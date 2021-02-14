@@ -1,0 +1,15 @@
+<h1>the developer's blog</h1>
+
+{% for blog in blogs %}
+
+<h2>{{ blog.title }}</h2>
+<h5>{{ blog.details }}</h5>
+{{ blog.date }}
+
+{% if blog.image %}
+<img src="{{ blog.image.url }}" height=100 width=120>
+{% endif %}
+
+{% endfor %}
+
+
