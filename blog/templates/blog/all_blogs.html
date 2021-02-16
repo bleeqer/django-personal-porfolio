@@ -1,10 +1,15 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+
 <h1>the developer's blog</h1>
 
+<h2>Nick hass written {{ blog_count }} blog{{ blog_count|pluralize }}</h2>
 {% for blog in blogs %}
 
 <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
-<h5>{{ blog.details }}</h5>
-{{ blog.date }}
+<h5>{{ blog.details|truncatechars:100 }}</h5>
+{{ blog.date|date:'M d Y'|upper }}
 
 {% if blog.image %}
 <img src="{{ blog.image.url }}" height=100 width=120>
@@ -12,4 +17,4 @@
 
 {% endfor %}
 
-
+{% endblock %}

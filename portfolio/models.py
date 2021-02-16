@@ -6,6 +6,9 @@ class Project(models.Model):  # modeling the table that goes into the database
     image = models.ImageField(upload_to='portfolio/images/')
     url = models.URLField(blank=True)  # blank=True allows you to not set the url
 
+    def __str__(self):
+        return self.title
+
 
 # how to add a modeling class to my database
 # 1. go to the terminal
